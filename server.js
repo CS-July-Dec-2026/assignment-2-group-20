@@ -71,7 +71,13 @@ const server = http.createServer(async (request, response) => {
   if (request.url === '/api/profile' && request.method === 'POST') {
     try {
       const requestBody = await readJson(request);
-      Object.assign(userRecord, requestBody);
+      const allowedFields = ['displayName'];
+
+      for(const field of allowedFields) {
+        if(Object.prototype.hasOwnProperty.call(requestBody, field)) {
+          userRecord[field] = requestBody[field]; 
+        }
+      }
       sendJson(response, 200, userRecord);
     } catch (error) {
       sendJson(response, 400, { error: error.message });

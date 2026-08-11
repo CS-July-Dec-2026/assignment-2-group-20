@@ -7,7 +7,7 @@ async function sendRequest() {
     body: JSON.stringify({
       displayName: 'hacker',
       isAdmin: true,
-      creditLimit: 50000
+      creditLimit: 500
     })
   });
 

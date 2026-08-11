@@ -1,3 +1,5 @@
+[Google Drive Folder](https://drive.google.com/drive/folders/12PhTquj1DhK0hGEkLB850jyEjXtJFHC4?usp=sharing)
+
 # Mass Assignment Demo
 
 A small Node.js security lab that makes a mass-assignment vulnerability visible through a profile editor.
