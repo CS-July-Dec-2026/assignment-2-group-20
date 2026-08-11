@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mass Assignment Demo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="shell">
+    <header class="hero">
+      <p class="eyebrow">Local security lab</p>
+      <h1>Mass assignment, made visible.</h1>
+      <p class="intro">The form appears to edit one safe field. The vulnerable update routine accepts every property it receives.</p>
+    </header>
+
+    <section class="grid" aria-label="Mass assignment demonstration">
+      <article class="panel">
+        <div class="panel-heading">
+          <div>
+            <p class="eyebrow">Client form</p>
+            <h2>Edit profile</h2>
+          </div>
+          <span class="status safe">Visible field</span>
+        </div>
+        <form id="profile-form">
+          <label for="display-name">Display name</label>
+          <input id="display-name" name="displayName" value="Alex Morgan" autocomplete="off">
+          <button type="submit">Save profile</button>
+        </form>
+        <p class="hint">Only <code>displayName</code> is shown, but the Node endpoint does not enforce that boundary.</p>
+      </article>
+
+      <article class="panel result-panel">
+        <div class="panel-heading">
+          <div>
+            <p class="eyebrow">Database record</p>
+            <h2 id="result-title">Current user</h2>
+          </div>
+          <span id="result-badge" class="status">Waiting</span>
+        </div>
+        <dl id="user-record" class="record"></dl>
+        <p id="message" class="message" role="status">Submit the form. </p>
+      </article>
+    </section>
+
+    <footer>
+      Basic profile editor backed by a Node.js API.
+    </footer>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
